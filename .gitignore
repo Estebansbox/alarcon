@@ -1,0 +1,15 @@
+# Ignorar todo
+*
+
+# ¡Excepto los archivos y carpetas relevantes!
+!.gitignore
+!main.py
+!requirements.txt
+!routes/
+
+# Ignorar archivos innecesarios en routes
+routes/__pycache__/
+routes/*.pyc
+
+# Ignorar archivos del sistema
+.DS_Store
