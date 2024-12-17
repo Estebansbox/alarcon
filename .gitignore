@@ -7,6 +7,8 @@
 !requirements.txt
 !routes/
 !Dockerfile
+!.dockerignore
+!cloudbuild.yaml
 
 # Ignorar archivos innecesarios en routes
 routes/__pycache__/
