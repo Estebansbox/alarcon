@@ -6,6 +6,7 @@
 !main.py
 !requirements.txt
 !routes/
+!Dockerfile
 
 # Ignorar archivos innecesarios en routes
 routes/__pycache__/
