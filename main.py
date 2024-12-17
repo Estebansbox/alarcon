@@ -12,5 +12,5 @@ app.include_router(appointments_router)
 async def root():
     return {"mensaje": "¡Bienvenido al backend de Dany, asistente virtual del Dr. Wilfrido Alarcón!"} 
 
-# Cambio de prueba
+# Cambio de prueba.
 # Este es un cambio de prueba para Render
