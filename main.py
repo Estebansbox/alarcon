@@ -13,4 +13,4 @@ async def root():
     return {"mensaje": "¡Bienvenido al backend de Dani, asistente virtual del Dr. Wilfrido Alarcón!"} 
 
 # Cambio de prueba.
-# Este es un cambio de prueba para Render
+# Este es un cambio de prueba para Rende
