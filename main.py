@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from routes.appointments import router as appointments_router
 
-# Crear la aplicación FastAPI
+# Crear la aplicación FastAP
 app = FastAPI()
 
 # Incluir las rutas de las citas
