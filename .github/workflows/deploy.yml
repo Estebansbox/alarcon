@@ -22,7 +22,11 @@ jobs:
       uses: google-github-actions/setup-gcloud@v1
       with:
         project_id: stoked-citizen-444921-v7
-        install_components: cloud-run
+        install_components: cloud-run,app-engine-java
+
+    - name: Install Cloud Run Components
+      run: |
+        gcloud components install cloud-run --quiet
 
     - name: Deploy to Cloud Run
       run: |
