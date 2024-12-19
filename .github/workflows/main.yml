@@ -1,0 +1,38 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches:
+      - main  # Cambia 'main' si tu rama principal tiene otro nombre
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Setup Google Cloud SDK
+      uses: google-github-actions/setup-gcloud@v1
+      with:
+        version: 'latest'
+        service_account_key: ${{ secrets.GCP_SA_KEY }}
+        project_id: ${{ secrets.GCP_PROJECT_ID }}
+
+    - name: Configure Docker
+      run: gcloud auth configure-docker --quiet
+
+    - name: Build and push Docker image
+      run: |
+        IMAGE_NAME="us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/cloud-run-source-deploy/fastapi-service"
+        gcloud builds submit --tag $IMAGE_NAME
+
+    - name: Deploy to Cloud Run
+      run: |
+        IMAGE_NAME="us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/cloud-run-source-deploy/fastapi-service"
+        gcloud run deploy fastapi-service \
+          --image $IMAGE_NAME \
+          --region us-central1 \
+          --platform managed \
+          --allow-unauthenticated
